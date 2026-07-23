@@ -555,6 +555,169 @@
     .verdict-root   { color: var(--red-600); font-weight: 500; }
     .verdict-impact { color: var(--amber-600); font-weight: 500; }
     .verdict-ok     { color: var(--green-600); font-weight: 500; }
+    .ops-section { margin-top: 18px; }
+    .ops-section:first-of-type { margin-top: 0; }
+    .section-heading {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 10px;
+    }
+    .section-heading h2 { font-size: 14px; font-weight: 600; }
+    .section-heading p { margin-top: 3px; color: var(--text-secondary); font-size: 11.5px; }
+    .maintenance-toolbar {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 11px;
+      border-bottom: 0.5px solid var(--border-light);
+      background: var(--bg-secondary);
+    }
+    .selected-count {
+      margin-right: auto;
+      color: var(--text-secondary);
+      font-size: 11.5px;
+    }
+    .selected-count strong { color: var(--text-primary); }
+    .bulk-btn, .table-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      border-radius: var(--radius-md);
+      border: 0.5px solid var(--border-mid);
+      background: var(--bg-primary);
+      color: var(--text-secondary);
+      font-family: var(--font);
+      cursor: pointer;
+      transition: background .12s, border-color .12s, color .12s;
+    }
+    .bulk-btn { padding: 6px 11px; font-size: 11.5px; }
+    .table-action { padding: 4px 9px; font-size: 11px; white-space: nowrap; }
+    .bulk-btn:hover:not(:disabled), .table-action:hover {
+      border-color: var(--blue-400);
+      background: var(--blue-50);
+      color: var(--blue-600);
+    }
+    .bulk-btn:disabled { cursor: not-allowed; opacity: .45; }
+    .bulk-btn.primary {
+      background: var(--blue-600);
+      border-color: var(--blue-600);
+      color: #fff;
+    }
+    .bulk-btn.primary:hover:not(:disabled) { background: var(--blue-800); color: #fff; }
+    .device-name { display: flex; align-items: center; gap: 8px; font-weight: 500; }
+    .device-name i { color: var(--text-tertiary); font-size: 16px; }
+    .device-meta { color: var(--text-tertiary); font-size: 10.5px; margin-top: 2px; }
+    .maintenance-row td { background: var(--amber-50); }
+    .maintenance-row:hover td { background: var(--amber-50) !important; }
+    .maintenance-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      border-radius: 20px;
+      padding: 2px 9px;
+      background: var(--amber-50);
+      color: var(--amber-600);
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .maintenance-pill i { font-size: 13px; }
+    .maintenance-details { margin-top: 3px; color: var(--text-tertiary); font-size: 10px; }
+    .device-checkbox {
+      width: 15px;
+      height: 15px;
+      accent-color: var(--blue-600);
+      cursor: pointer;
+    }
+    .empty-devices { padding: 20px !important; text-align: center; color: var(--text-secondary) !important; }
+
+    /* maintenance modal */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(5, 8, 16, .42);
+      backdrop-filter: blur(2px);
+      z-index: 1000;
+    }
+    .modal-backdrop.open { display: flex; }
+    .modal-card {
+      width: min(440px, 100%);
+      background: var(--bg-primary);
+      border: 0.5px solid var(--border-mid);
+      border-radius: var(--radius-xl);
+      box-shadow: 0 22px 60px rgba(0,0,0,.22);
+      overflow: hidden;
+    }
+    .modal-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      padding: 17px 18px 13px;
+      border-bottom: 0.5px solid var(--border-light);
+    }
+    .modal-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background: var(--amber-50);
+      color: var(--amber-600);
+    }
+    .modal-icon i { font-size: 18px; }
+    .modal-title { font-size: 14px; font-weight: 600; }
+    .modal-subtitle { margin-top: 3px; color: var(--text-secondary); font-size: 11.5px; line-height: 1.5; }
+    .modal-close {
+      width: 28px;
+      height: 28px;
+      margin-left: auto;
+      border: none;
+      border-radius: var(--radius-sm);
+      background: none;
+      color: var(--text-tertiary);
+      cursor: pointer;
+    }
+    .modal-close:hover { background: var(--bg-secondary); color: var(--text-primary); }
+    .modal-body { padding: 16px 18px; display: grid; gap: 13px; }
+    .modal-field { display: grid; gap: 5px; }
+    .modal-field label { color: var(--text-secondary); font-size: 11.5px; font-weight: 500; }
+    .modal-field input, .modal-field select {
+      width: 100%;
+      padding: 8px 10px;
+      border: 0.5px solid var(--border-mid);
+      border-radius: var(--radius-md);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font);
+      font-size: 12.5px;
+      outline: none;
+    }
+    .modal-field input:focus, .modal-field select:focus { border-color: var(--blue-400); }
+    .modal-note {
+      display: flex;
+      align-items: flex-start;
+      gap: 7px;
+      color: var(--text-secondary);
+      font-size: 11px;
+      line-height: 1.5;
+    }
+    .modal-note i { color: var(--blue-600); font-size: 14px; margin-top: 1px; }
+    .modal-footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      padding: 12px 18px;
+      border-top: 0.5px solid var(--border-light);
+      background: var(--bg-secondary);
+    }
 
     /* ── Scrollbar ────────────────────────────────────────────── */
     ::-webkit-scrollbar { width: 5px; height: 5px; }
@@ -586,6 +749,9 @@
       .metrics-grid { grid-template-columns: repeat(2,1fr); }
       .form-grid { grid-template-columns: 1fr; }
       .form-field.full { grid-column: 1; }
+      .section-heading { align-items: flex-start; flex-direction: column; }
+      .maintenance-toolbar { align-items: stretch; flex-wrap: wrap; }
+      .selected-count { width: 100%; }
     }
     @media (max-width: 480px) {
       .topbar-tabs .tab-btn span { display: none; }
@@ -1009,13 +1175,61 @@
             <div class="m-delta delta-up">↑ 3× spike</div>
           </div>
           <div class="metric-card">
-            <div class="m-num">0</div>
-            <div class="m-lbl">Active change windows</div>
-            <div class="m-delta delta-neutral">Clean window</div>
+            <div class="m-num" id="maintenanceMetric">0</div>
+            <div class="m-lbl">Devices in maintenance</div>
+            <div class="m-delta delta-neutral" id="maintenanceMetricDetail">No alert suppression</div>
           </div>
         </div>
 
-        <div class="table-wrap">
+        <section class="ops-section" aria-labelledby="device-inventory-title">
+          <div class="section-heading">
+            <div>
+              <h2 id="device-inventory-title">Device inventory</h2>
+              <p>Select one or more devices to pause alerting during planned work.</p>
+            </div>
+            <span class="maintenance-pill" id="maintenanceSummary">
+              <i class="ti ti-tool" aria-hidden="true"></i>
+              0 in maintenance
+            </span>
+          </div>
+          <div class="table-wrap">
+            <div class="maintenance-toolbar">
+              <span class="selected-count" id="selectedDeviceCount"><strong>0</strong> devices selected</span>
+              <button class="bulk-btn primary" id="enterMaintenanceBtn" type="button" onclick="openMaintenanceDialog()" disabled>
+                <i class="ti ti-tool" aria-hidden="true"></i>
+                Put in maintenance
+              </button>
+              <button class="bulk-btn" id="removeMaintenanceBtn" type="button" onclick="removeSelectedFromMaintenance()" disabled>
+                <i class="ti ti-player-play" aria-hidden="true"></i>
+                Remove maintenance
+              </button>
+            </div>
+            <table class="data-table" aria-label="Network device inventory and maintenance controls">
+              <thead>
+                <tr>
+                  <th style="width:38px">
+                    <input class="device-checkbox" id="selectAllDevices" type="checkbox" onchange="toggleAllDevices(this.checked)" aria-label="Select all devices" />
+                  </th>
+                  <th>Device</th>
+                  <th>Type</th>
+                  <th>Health</th>
+                  <th>Maintenance state</th>
+                  <th style="width:150px">Action</th>
+                </tr>
+              </thead>
+              <tbody id="deviceTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="ops-section" aria-labelledby="service-health-title">
+          <div class="section-heading">
+            <div>
+              <h2 id="service-health-title">Service health</h2>
+              <p>Live service-level health and AI correlation.</p>
+            </div>
+          </div>
+          <div class="table-wrap">
           <table class="data-table" aria-label="Service health overview">
             <thead>
               <tr>
@@ -1086,7 +1300,8 @@
               </tr>
             </tbody>
           </table>
-        </div>
+          </div>
+        </section>
       </div>
     </section>
 
@@ -1095,6 +1310,46 @@
 
 <!-- Toast -->
 <div id="toast" role="status" aria-live="polite"></div>
+
+<!-- Maintenance mode dialog -->
+<div class="modal-backdrop" id="maintenanceModal" role="dialog" aria-modal="true" aria-labelledby="maintenanceModalTitle" onclick="handleModalBackdrop(event)">
+  <div class="modal-card">
+    <div class="modal-header">
+      <div class="modal-icon"><i class="ti ti-tool" aria-hidden="true"></i></div>
+      <div>
+        <div class="modal-title" id="maintenanceModalTitle">Put devices in maintenance</div>
+        <div class="modal-subtitle" id="maintenanceModalSubtitle">Alerts will be paused for the selected devices.</div>
+      </div>
+      <button class="modal-close" type="button" onclick="closeMaintenanceDialog()" aria-label="Close maintenance dialog">
+        <i class="ti ti-x" aria-hidden="true"></i>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-field">
+        <label for="maintenanceReason">Reason</label>
+        <input id="maintenanceReason" type="text" maxlength="120" placeholder="e.g. Firmware upgrade" />
+      </div>
+      <div class="modal-field">
+        <label for="maintenanceDuration">Duration</label>
+        <select id="maintenanceDuration">
+          <option value="1">1 hour</option>
+          <option value="4" selected>4 hours</option>
+          <option value="8">8 hours</option>
+          <option value="24">24 hours</option>
+          <option value="0">Until manually removed</option>
+        </select>
+      </div>
+      <div class="modal-note">
+        <i class="ti ti-info-circle" aria-hidden="true"></i>
+        <span>Health checks continue, but alerts and incident creation are suppressed. You can remove maintenance mode at any time.</span>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="bulk-btn" type="button" onclick="closeMaintenanceDialog()">Cancel</button>
+      <button class="bulk-btn primary" type="button" onclick="applyMaintenance()">Apply maintenance</button>
+    </div>
+  </div>
+</div>
 
 <script>
   // ── View switching ─────────────────────────────────────────
@@ -1308,6 +1563,199 @@
     }, 900);
   }
 
+  // ── Device maintenance mode ────────────────────────────────
+  const maintenanceStorageKey = 'nexus-maintenance-devices-v1';
+  const networkDevices = [
+    { id: 'edge-router-01', name: 'edge-router-01', type: 'Core router', location: 'Mumbai DC · Rack N-04', health: 'Healthy', icon: 'ti-router' },
+    { id: 'vpn-gateway-prod-01', name: 'vpn-gateway-prod-01', type: 'VPN gateway', location: 'Mumbai DC · Edge zone', health: 'Down', icon: 'ti-shield-lock' },
+    { id: 'firewall-perimeter-02', name: 'firewall-perimeter-02', type: 'Firewall', location: 'Mumbai DC · Edge zone', health: 'Healthy', icon: 'ti-shield' },
+    { id: 'access-switch-blr-04', name: 'access-switch-blr-04', type: 'Access switch', location: 'Bengaluru office · Floor 4', health: 'Healthy', icon: 'ti-switch-3' },
+    { id: 'load-balancer-01', name: 'load-balancer-01', type: 'Load balancer', location: 'Mumbai DC · App zone', health: 'Degraded', icon: 'ti-arrows-split' },
+    { id: 'dns-resolver-02', name: 'dns-resolver-02', type: 'DNS resolver', location: 'Bengaluru DC · Services', health: 'Healthy', icon: 'ti-world' }
+  ];
+  const selectedDevices = new Set();
+  let maintenanceRecords = loadMaintenanceRecords();
+  let pendingMaintenanceDevices = [];
+
+  function loadMaintenanceRecords() {
+    try {
+      const stored = JSON.parse(localStorage.getItem(maintenanceStorageKey) || '{}');
+      const now = Date.now();
+      const active = {};
+      Object.entries(stored).forEach(([id, record]) => {
+        if (!record.until || record.until > now) active[id] = record;
+      });
+      localStorage.setItem(maintenanceStorageKey, JSON.stringify(active));
+      return active;
+    } catch (error) {
+      return {};
+    }
+  }
+
+  function saveMaintenanceRecords() {
+    try {
+      localStorage.setItem(maintenanceStorageKey, JSON.stringify(maintenanceRecords));
+    } catch (error) {
+      showToast('Maintenance state could not be saved in this browser');
+    }
+  }
+
+  function healthBadge(health) {
+    if (health === 'Down') return '<span class="sev p1">Down</span>';
+    if (health === 'Degraded') return '<span class="sev p2">Degraded</span>';
+    return '<span class="status-pill resolved">Healthy</span>';
+  }
+
+  function formatMaintenanceWindow(record) {
+    if (!record.until) return 'Until manually removed';
+    return 'Until ' + new Date(record.until).toLocaleString([], {
+      month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'
+    });
+  }
+
+  function renderDeviceInventory() {
+    maintenanceRecords = loadMaintenanceRecords();
+    const tbody = document.getElementById('deviceTableBody');
+    if (!tbody) return;
+
+    tbody.innerHTML = networkDevices.map(device => {
+      const record = maintenanceRecords[device.id];
+      const checked = selectedDevices.has(device.id);
+      const maintenanceState = record
+        ? `<span class="maintenance-pill"><i class="ti ti-tool" aria-hidden="true"></i>Maintenance</span>
+           <div class="maintenance-details">${escHtml(record.reason)} · ${escHtml(formatMaintenanceWindow(record))}</div>`
+        : '<span class="status-pill resolved">Active monitoring</span>';
+      const action = record
+        ? `<button class="table-action" type="button" onclick="removeDeviceFromMaintenance('${device.id}')">
+             <i class="ti ti-player-play" aria-hidden="true"></i>Remove
+           </button>`
+        : `<button class="table-action" type="button" onclick="openMaintenanceDialog(['${device.id}'])">
+             <i class="ti ti-tool" aria-hidden="true"></i>Maintain
+           </button>`;
+
+      return `
+        <tr class="${record ? 'maintenance-row' : ''}">
+          <td><input class="device-checkbox" type="checkbox" value="${device.id}" ${checked ? 'checked' : ''} onchange="toggleDeviceSelection('${device.id}', this.checked)" aria-label="Select ${escHtml(device.name)}" /></td>
+          <td>
+            <div class="device-name"><i class="ti ${device.icon}" aria-hidden="true"></i>${escHtml(device.name)}</div>
+            <div class="device-meta">${escHtml(device.location)}</div>
+          </td>
+          <td>${escHtml(device.type)}</td>
+          <td>${record ? '<span class="maintenance-pill"><i class="ti ti-bell-off" aria-hidden="true"></i>Suppressed</span>' : healthBadge(device.health)}</td>
+          <td>${maintenanceState}</td>
+          <td>${action}</td>
+        </tr>`;
+    }).join('');
+
+    updateMaintenanceControls();
+  }
+
+  function updateMaintenanceControls() {
+    const selected = [...selectedDevices];
+    const maintenanceCount = Object.keys(maintenanceRecords).length;
+    const selectedMaintenance = selected.filter(id => maintenanceRecords[id]).length;
+    const selectedActive = selected.length - selectedMaintenance;
+
+    document.getElementById('selectedDeviceCount').innerHTML =
+      `<strong>${selected.length}</strong> ${selected.length === 1 ? 'device' : 'devices'} selected`;
+    document.getElementById('enterMaintenanceBtn').disabled = selectedActive === 0;
+    document.getElementById('removeMaintenanceBtn').disabled = selectedMaintenance === 0;
+    document.getElementById('maintenanceMetric').textContent = maintenanceCount;
+    document.getElementById('maintenanceMetricDetail').textContent =
+      maintenanceCount ? `${maintenanceCount} ${maintenanceCount === 1 ? 'device' : 'devices'} suppressed` : 'No alert suppression';
+    document.getElementById('maintenanceSummary').innerHTML =
+      `<i class="ti ti-tool" aria-hidden="true"></i>${maintenanceCount} in maintenance`;
+
+    const selectAll = document.getElementById('selectAllDevices');
+    selectAll.checked = selected.length === networkDevices.length;
+    selectAll.indeterminate = selected.length > 0 && selected.length < networkDevices.length;
+  }
+
+  function toggleDeviceSelection(id, checked) {
+    if (checked) selectedDevices.add(id);
+    else selectedDevices.delete(id);
+    updateMaintenanceControls();
+  }
+
+  function toggleAllDevices(checked) {
+    selectedDevices.clear();
+    if (checked) networkDevices.forEach(device => selectedDevices.add(device.id));
+    renderDeviceInventory();
+  }
+
+  function openMaintenanceDialog(deviceIds) {
+    const requested = deviceIds || [...selectedDevices];
+    pendingMaintenanceDevices = requested.filter(id => !maintenanceRecords[id]);
+    if (!pendingMaintenanceDevices.length) {
+      showToast('Select at least one actively monitored device');
+      return;
+    }
+
+    const names = pendingMaintenanceDevices
+      .map(id => networkDevices.find(device => device.id === id)?.name)
+      .filter(Boolean);
+    document.getElementById('maintenanceModalSubtitle').textContent =
+      names.length === 1
+        ? `Alerts will be paused for ${names[0]}.`
+        : `Alerts will be paused for ${names.length} selected devices.`;
+    document.getElementById('maintenanceReason').value = '';
+    document.getElementById('maintenanceDuration').value = '4';
+    document.getElementById('maintenanceModal').classList.add('open');
+    document.getElementById('maintenanceReason').focus();
+  }
+
+  function closeMaintenanceDialog() {
+    document.getElementById('maintenanceModal').classList.remove('open');
+    pendingMaintenanceDevices = [];
+  }
+
+  function handleModalBackdrop(event) {
+    if (event.target.id === 'maintenanceModal') closeMaintenanceDialog();
+  }
+
+  function applyMaintenance() {
+    const reason = document.getElementById('maintenanceReason').value.trim() || 'Planned maintenance';
+    const durationHours = Number(document.getElementById('maintenanceDuration').value);
+    const startedAt = Date.now();
+    const until = durationHours ? startedAt + durationHours * 60 * 60 * 1000 : null;
+
+    pendingMaintenanceDevices.forEach(id => {
+      maintenanceRecords[id] = { reason, startedAt, until };
+      selectedDevices.delete(id);
+    });
+    const count = pendingMaintenanceDevices.length;
+    saveMaintenanceRecords();
+    closeMaintenanceDialog();
+    renderDeviceInventory();
+    showToast(`${count} ${count === 1 ? 'device' : 'devices'} placed in maintenance`);
+  }
+
+  function removeDeviceFromMaintenance(id) {
+    const device = networkDevices.find(item => item.id === id);
+    delete maintenanceRecords[id];
+    selectedDevices.delete(id);
+    saveMaintenanceRecords();
+    renderDeviceInventory();
+    showToast(`Maintenance removed from ${device?.name || 'device'}`);
+  }
+
+  function removeSelectedFromMaintenance() {
+    const ids = [...selectedDevices].filter(id => maintenanceRecords[id]);
+    ids.forEach(id => {
+      delete maintenanceRecords[id];
+      selectedDevices.delete(id);
+    });
+    saveMaintenanceRecords();
+    renderDeviceInventory();
+    showToast(`Maintenance removed from ${ids.length} ${ids.length === 1 ? 'device' : 'devices'}`);
+  }
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && document.getElementById('maintenanceModal').classList.contains('open')) {
+      closeMaintenanceDialog();
+    }
+  });
+
   // ── Toast ──────────────────────────────────────────────────
   let toastTimer;
   function showToast(msg) {
@@ -1317,6 +1765,9 @@
     clearTimeout(toastTimer);
     toastTimer = setTimeout(() => t.classList.remove('show'), 2800);
   }
+
+  renderDeviceInventory();
+  setInterval(renderDeviceInventory, 60000);
 </script>
 </body>
 </html>
